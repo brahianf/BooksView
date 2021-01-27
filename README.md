@@ -47,7 +47,7 @@ $npm install
 ````
 
 ### Execution  🔧
-For a development environment, after of command enter url http://localhots:8080
+For a development environment, after of command Project is running at http://localhost:9000/
 ```
 $npm build:dev
 ```
