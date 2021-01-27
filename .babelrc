@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        //core de runtime y dar soporte a generadores para que funcionen
+        "@babel/plugin-transform-runtime"
+    ],
+    // Presets configuracion || Babel core cambia el formato de js moderno a caracteristicas de js que se le config que soporte
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
