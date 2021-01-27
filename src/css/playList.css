@@ -1,0 +1,107 @@
+
+/*myPlaylist*/
+
+.myPlaylist {
+    padding: 0 20px;
+  }
+    
+.myPlaylist-item a {
+  color: var(--lightColor);
+  text-decoration: none;
+  font-size: .8em;
+  display: block;
+  margin-bottom: 7px;
+}
+.myPlaylist-item:last-child a {
+  margin-bottom: 0;
+}
+
+/* .myPlaylist-item a:hover {
+  text-decoration: underline;
+} */
+
+/* Pseudoclases */
+/* .myPlaylist-item:matches(:last-child, :nth-of-type(3), :first-child) {
+  background: color(red l(70%));
+}
+.myPlaylist-item:not(:last-child, :nth-of-type(3)) {
+  background: color(blue l(80%));
+} */
+
+/*playlistFriends*/
+
+.playlistFriends {
+  padding: 0;
+  @media (--small ){
+    display: none;
+  }
+}
+
+.playlistFriends.is-active {
+  display: block;
+}
+
+.playlistFriends.is-desactive {
+  display: none;
+}
+
+.playlistFriends-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 7px;
+  width: 100%;
+  height: min-content;
+  /* font-size: .9em; */
+  color: var(--darkColor);
+}
+
+.playlistFriends-item span{
+  display: inline-flex;
+  align-items: center;
+  color: var(--darkColor);
+  text-decoration: none;
+  font-style: normal;
+  font-size: 14px;
+  size: auto;
+  margin: 0 10px;
+  /* padding-left: 10px; */
+  font-family: "Lato";
+  font-weight: 400;
+  line-height: 21px;
+  /* identical to box height */
+  letter-spacing: 1.75px;
+  width: 100%;
+  box-sizing: border-box;
+  /* display: inline-block; */
+}
+
+.playlistFriends-item span:hover {
+  /* box-shadow: 0px .8px 0px 0px var(--warningColor); */
+  border-left: 2.4px solid var(--warningColor);
+  background-color: rgb(255, 86, 92,.1);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.playlistFriends-item img {
+  width: 34px;
+  height: 40px;
+  border: 1.1px solid black;
+  border-radius: 2px;
+  margin: auto auto;
+  @media (--small ){
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* .playlistFriends-item span {
+  display: inline-block;
+} */
+
+
+.is-active{
+  display: flex;
+  flex-direction: column;
+}
