@@ -32,6 +32,9 @@
 
 .playlistFriends {
   padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 340px;
   @media (--small ){
     display: none;
   }
@@ -100,6 +103,17 @@
   display: inline-block;
 } */
 
+.playlistFriends-subItem {
+  /* margin: 10px; */
+  display: none;
+  padding: 4px 0 0 20px;
+  font-family: "Lato";
+  font-weight: 400;
+  /* identical to box height */
+  letter-spacing: 1.75px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 .is-active{
   display: flex;
