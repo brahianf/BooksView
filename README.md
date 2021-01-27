@@ -54,7 +54,7 @@ $npm build:dev
 
 For a transform CSS with plugins Javascript:
 ```
-$npx postcss \src\css\home.css -o \dist\css\home.css -w
+$npx postcss ./src/css/home.css -o ./dist/css/home.css -w
 ```
 
 ### build  📦

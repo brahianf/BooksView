@@ -1,0 +1,35 @@
+:root {
+    --darkColor: #1D1F24;
+    --lightColor: white;
+    --warningColor: #ff565c;
+    --auxColor: rgba(29, 31, 36, .3);
+    --auxColor2: #ecf4ff;
+    --button: {
+      border: 1px solid var(--lightColor);
+      border-radius: 5px;
+      background: var(--darkColor);
+      color: var(--lightColor);
+      padding: .5em 2em;
+      margin: 0px;
+      margin-left: 20px;
+      height: min-content;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-size: 11px;
+      border-bottom: 3px solid var(--lightColor)
+    };
+    --viewportHeight: 50vh;
+  }
+  
+  .btn {
+    @apply --button;
+  }
+  .btn.warning {
+    background: var(--warningColor);
+    background: #FF565C;
+    width: 30%;
+    height: 20px;
+    padding: .3em .4em .4em;
+    text-transform: none;
+    text-align:center;
+  }

@@ -1,0 +1,46 @@
+.primary-user {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  @media (--small ){
+    grid-area: user;
+    margin: 5px;
+  }  
+}
+
+.user p {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin: 0;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: bold;
+  line-height: 30px;
+  /* or 125% */
+  letter-spacing: -0.369231px;
+  color: #1D1F24;
+  /* @media (--small ){
+    font-size: 18px;
+  } */
+}
+
+.user p:hover {
+  text-decoration: underline;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.user img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin: 5px;
+  height: 30px;
+  width: 30px;
+  border: 1.6px black solid;
+  border-radius: 130px;
+  padding: 2px;
+}
