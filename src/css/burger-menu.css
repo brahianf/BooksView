@@ -1,0 +1,34 @@
+.burger-button{
+  /* width: 30px; */
+  height: 40px;
+  border: 2px solid rgba(29, 31, 36, .8);
+  /* border: .5px solid var(--darkColor); */
+  /* border-radius: 50%; */
+  background-color: var(--lightColor);
+  /* box-shadow: 0px 3px 6px 0px var(--warningColor); */
+  display: block;
+  line-height: 40px;
+  text-align: center;
+  /* position: fixed;
+  z-index: 1;
+  left: 20px;
+  top: 80px; */
+  @media (--small ){
+    top: 160px;
+  }
+}
+
+.burger-button:focus {
+  outline: none;
+}
+
+.burger-button img {
+  width: 24px;
+  height: 24px;
+}
+
+/* 
+.icon-menu {
+  color: white;
+  background-color: white;
+} */
