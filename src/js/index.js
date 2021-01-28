@@ -79,6 +79,18 @@
     });
   };
 
+  function squeletonImageLoad() {
+    return (
+      `
+      <div class="primaryPlaylist">
+        <div class="primaryPlaylist-list" id="action">
+          <img src="src/images/loader.gif" width="100" height="140" alt="loader" margin="0 auto">
+        </div>
+      </div>
+      `
+    );
+  };
+
   async function addEventSelectSubCategoryClick($element){
     $element.addEventListener('click', async() => {
       const id = $element.dataset.id;
@@ -87,8 +99,8 @@
 
       ListView = await cacheExist(`${nicename}`);
       const $booksContainer = document.querySelector('#booksContainer');
-      // const HTMLStringLoad = squeletonImageLoad();
-      $booksContainer.innerHTML = '';
+      const HTMLStringLoad = squeletonImageLoad();
+      $booksContainer.innerHTML = HTMLStringLoad;
       renderBookList(ListView, $booksContainer,`${name}`);
     });
   };
@@ -104,8 +116,8 @@
 
         ListView = await cacheExist(`${nicename}`);
         const $booksContainer = document.querySelector('#booksContainer');
-        // const HTMLStringLoad = squeletonImageLoad();
-        $booksContainer.innerHTML = '';
+        const HTMLStringLoad = squeletonImageLoad();
+        $booksContainer.innerHTML = HTMLStringLoad;
         renderBookList(ListView, $booksContainer,`${name}`);
       } else {
         if ($subCategoryItems.classList.contains('is-active')){
