@@ -88,7 +88,7 @@
       ListView = await cacheExist(`${nicename}`);
       const $booksContainer = document.querySelector('#booksContainer');
       // const HTMLStringLoad = squeletonImageLoad();
-      // $booksContainer.innerHTML = HTMLStringLoad;
+      $booksContainer.innerHTML = '';
       renderBookList(ListView, $booksContainer,`${name}`);
     });
   };
@@ -105,7 +105,7 @@
         ListView = await cacheExist(`${nicename}`);
         const $booksContainer = document.querySelector('#booksContainer');
         // const HTMLStringLoad = squeletonImageLoad();
-        // $booksContainer.innerHTML = HTMLStringLoad;
+        $booksContainer.innerHTML = '';
         renderBookList(ListView, $booksContainer,`${name}`);
       } else {
         if ($subCategoryItems.classList.contains('is-active')){
