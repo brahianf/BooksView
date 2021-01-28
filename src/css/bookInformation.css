@@ -1,0 +1,71 @@
+.bookInformation{
+  display: none;
+  box-shadow: inset 0 -.2em rgba(0,0,0, .2);
+  background: rgba(0,0,0,.8);
+  color: var(--lightColor);
+  width: 100%;
+  height: 0;
+  transition: 3s;
+  position: absolute;
+  top: 0;
+}
+
+.bookInformation.is-active{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  vertical-align: middle;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  width: 100%;
+  height: 100%;
+  transition: .3s;
+  animation: informationIn .4s forwards;
+}
+
+.bookInformation p {
+  margin: 6px;
+  font-weight: bold;
+}
+
+.bookInformation-btn.secundary{
+  padding: .3em .4em .4em;
+  text-transform: none;
+  text-align:center;
+  align-self: flex-end;
+  padding: .5em;
+  border: none;
+  color: white;
+  background: #ff463b;
+  margin: 5px;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: inset 0 -.2em rgba(0,0,0, .2);
+  outline: 0;
+  transition: .2s;
+  will-change: transform;
+  text-transform: capitalize;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+@keyframes informationIn {
+  0% {
+    opacity: 0.10;
+  }
+  25% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.69;
+  }
+  80% {
+    opacity: 0.86;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -52,3 +52,22 @@
 .home-sidebar.maxWidth{
   width: 100%;
 }
+
+.home-primary {
+  margin-top: 20px;
+}
+
+.home-primary-tags {
+  margin: 0px 20px;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 78px;
+  text-transform: uppercase;
+  color: #1D1F24;
+}
+
+.home-primary-tags h2{
+  margin: 0;
+}
