@@ -444,4 +444,27 @@
     };
   });
 
+  // Elements Home List, Tags for view of books
+  const $home = document.getElementById('home');
+  const $homeSidebar = $home.querySelector('div.home-sidebar');
+  const $sidebar = $home.querySelector('div.sidebar');
+
+  function hideShow(){
+    if ($sidebar.classList.contains('show')){
+      $sidebar.classList.remove('show');
+      $homeSidebar.classList.remove('maxWidth');
+      $sidebar.classList.add('hide');
+      $homeSidebar.classList.add('minWidth');
+    } else{
+      $homeSidebar.classList.remove('minWidth');
+      $sidebar.classList.remove('hide');
+      $sidebar.classList.add('show');
+      $homeSidebar.classList.add('maxWidth');
+    }
+  };
+
+  // Burger Button for Screen max-width: 767px
+  const $burgerButton = document.querySelector('#burger-menu');
+  $burgerButton.addEventListener('click', hideShow);
+
 })();
