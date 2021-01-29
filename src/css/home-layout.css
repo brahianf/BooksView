@@ -4,15 +4,14 @@
     /* autoprefixer: off */
     display: grid;
     height: calc(var(--viewportHeight) * 2);
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 280px 1fr;
     grid-template-rows: 1fr 0;
     grid-template-areas: "sidebar primary"
                          "sidebar featuring";
     /* background: var(--auxColor2); */
     height: 100%;
     @media (--small ){
-      margin-top: 80px;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 60px 1fr;
       /* height: auto;
       display: flex;
       flex-direction:column;  */
@@ -43,6 +42,9 @@
   border-right: 1.4px solid rgba(29, 31, 36, .4);
   border-radius: 5px;
   transition: .5s;
+  @media (--small ){
+    width: 80px;
+  }
 }
 
 .home-sidebar.minWidth{
