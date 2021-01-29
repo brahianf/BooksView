@@ -395,4 +395,20 @@
     });
   });
 
+  const $menuHeader = document.querySelectorAll('a.linkNav');
+  $menuHeader.forEach((linkHeader) => {
+    linkHeader.addEventListener('click', async () => {
+      const category = linkHeader.dataset.category;
+      const title = linkHeader.textContent;
+      try {
+        ListView = await cacheExist(category);
+        const HTMLString = squeletonImageLoad();
+        $booksContainer.innerHTML = HTMLString;
+        renderBookList(ListView, $booksContainer, title);
+      } catch(error){
+        alert(error.message);
+      };
+    });
+  });
+
 })();
