@@ -63,9 +63,75 @@
     )
   }
 
+  function findbyId(id, list){
+    const book = list.find(book => book.ID === id);
+    return book;
+  };
+
+  function findBook(id, category){
+    if(category === 'Week'){
+      return findbyId(id, ListView);
+    } else {
+      return findbyId(id, ListView);
+    }
+  };
+
+  // Elements modal Books
+  const $modal = document.getElementById('modal');
+  const $modalTitle = $modal.querySelector('h1');
+  const $modalImage = $modal.querySelector('img');
+  const $modalContentAuthor = $modal.querySelector('p.modal-content-author');
+  const $modalContentLanguage = $modal.querySelector('p.modal-content-language');
+  const $modalContentPublisher = $modal.querySelector('p.modal-content-publisher');
+  const $modalContentPublisherDate = $modal.querySelector('p.modal-content-publisher_date');
+  const $modalContentDescription = $modal.querySelector('p.modal-content-description');
+
+  // Elements Overlay Modal;
+  const $overlay = document.getElementById('overlay');
+  const $hideModal = document.getElementById('hide-modal');
+
+  function hideModal(){
+    $overlay.classList.remove('active');
+    $modal.style.animation = 'modalOut .8s forwards';
+  };
+
+  $hideModal.addEventListener('click', hideModal);
+
+  // const listFavorites = await cacheExist('list-favorites');
+  let listFavorites = [];
+  // renderfavoriteList(listFavorites);
+
+  const $addfavorites = $modal.querySelector('button.secundary');
+
+  function showModal($element) {
+
+    const id= $element.dataset.id;
+    const book = findbyId($element.dataset.id, listFavorites);
+    if(book){
+      $addfavorites.textContent = 'Eliminar de favoritos'
+    } else {
+      $addfavorites.textContent = 'Agregar a favoritos';
+    }
+  
+    $modal.style.animation = 'modalIn .6s forwards';
+    $overlay.classList.add('active');
+  
+    const category = $element.dataset.category;
+    const data = findBook(id,category);
+    $modal.setAttribute('data-id', id);
+    $modal.setAttribute('data-category', category);
+    $modalTitle.textContent = data.title;
+    $modalImage.setAttribute('src', data.cover);
+    $modalContentAuthor.textContent = data.author;
+    $modalContentLanguage.textContent = data.language;
+    $modalContentPublisher.textContent = data.publisher;
+    $modalContentPublisherDate.textContent = data.publisher_date;
+    $modalContentDescription.textContent = data.content_short;
+  };
+
   function addEventClick($btn, $element) {
     $btn.addEventListener('click', () => {
-      
+      showModal($element);
     });
   };
 
