@@ -411,4 +411,21 @@
     });
   });
 
+  const $form = document.getElementById('form');
+  
+  $form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    // $home.classList.add('search-active')
+    const name = new FormData($form);
+    try {
+      ListView = await getData(`${BASE_API}?book_title="${name.get('name')}"&category=${name.get('name')}`);
+      const HTMLString = squeletonImageLoad();
+      $booksContainer.innerHTML = HTMLString;
+      renderBookList(ListView, $booksContainer, `Resultados para ${name.get('name')}`);
+    } catch(error){
+      alert(error.message);
+      $home.classList.remove('search-active');
+    }
+  });
+
 })();
