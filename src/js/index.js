@@ -63,6 +63,36 @@
     )
   }
 
+  function addEventClick($btn, $element) {
+    $btn.addEventListener('click', () => {
+      
+    });
+  };
+
+  function showInformation($element) {
+    // $modal.style.animation = 'modalIn .8s forwards';
+    const $bookInformation = $element.querySelector('div.bookInformation');
+    $bookInformation.classList.add('is-active');
+    const id = $element.dataset.id;
+    const category = $element.dataset.category;
+    const $btnBook= $element.querySelector('button.bookInformation-btn');
+    addEventClick($btnBook,$element);
+  };
+
+  function hideInformation($element) {
+    const $bookInformation = $element.querySelector('div.bookInformation');
+    $bookInformation.classList.remove('is-active');
+  };
+
+  function addEventHover($element){
+    $element.addEventListener('mouseenter', () => {
+      showInformation($element);
+    });
+    $element.addEventListener('mouseleave', () => {
+      hideInformation($element);
+    });
+  };
+
   function renderBookList(list, $container, category){
     $container.children[0].remove();
     const $homeprimarytags = document.querySelector('#home-primary-tags');
@@ -76,6 +106,10 @@
       // const $image=$container.querySelector('img.imgList')
       //const $image = document.querySelectorAll('img.imgList');
       // addEventListener($image);
+    });
+    const $primaryPlaylist = document.querySelectorAll('div.primaryPlaylist-book');
+    $primaryPlaylist.forEach((book)=>{
+      addEventHover(book);
     });
   };
 
