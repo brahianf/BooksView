@@ -101,7 +101,75 @@
   let listFavorites = [];
   // renderfavoriteList(listFavorites);
 
+  function removeFavoriteFromArr ( listFavorites, book) {
+    for (var i =0; i < listFavorites.length; i++){
+      if (listFavorites[i].ID === book.ID) {
+        listFavorites.splice(i,1);
+      }
+    }
+  }
+
+  function favoriteItemTemplate(book){
+    return (
+      `
+      <li class="playlistFriends-item listFavorites"  data-id=${book.ID} data-category=${book.category}">
+        <a href="#${book.title}" >
+          <img class="imgList fadeIn" src=${book.cover} width="60" height="60" alt="${book.title}"></img>
+          <span>
+            ${book.title}
+          </span>
+        </a>
+      </li>
+      `
+    );
+  };
+
+  function renderfavoriteList(listFavorites){
+    if(listFavorites){
+      const $sidebarPlaylist = document.querySelector('ul.sidebarPlaylist-favorites');
+      $sidebarPlaylist.innerHTML = '';
+      listFavorites.forEach((book) => {
+          const HTMLString = favoriteItemTemplate(book);
+          $sidebarPlaylist.innerHTML += HTMLString;
+      });
+    }
+    const $listFavorites = document.querySelectorAll('li.listFavorites');
+    if($listFavorites){
+      $listFavorites.forEach((favorite) => {
+        favorite.addEventListener('click', async() => {
+          showModal(favorite);
+        });
+      });
+    }
+  };
+  
+  function addFavoriteClick($addfavorites) {
+    $addfavorites.addEventListener('click', () => {
+      const id = $modal.dataset.id;
+      const category = $modal.dataset.category;
+      const title = $modalTitle.textContent;
+      const cover = $modalImage.getAttribute('src');
+
+      const book = {
+        ID: id,
+        category: category,
+        title: title,
+        cover: cover
+      };
+
+      if($addfavorites.textContent === 'Agregar a favoritos'){
+        $addfavorites.textContent = 'Eliminar de favoritos';
+        listFavorites.push(book);
+      } else {
+        $addfavorites.textContent = 'Agregar a favoritos';
+        removeFavoriteFromArr(listFavorites, book);
+      }
+      renderfavoriteList(listFavorites);
+    });
+  };
+
   const $addfavorites = $modal.querySelector('button.secundary');
+  addFavoriteClick($addfavorites);
 
   function showModal($element) {
 
