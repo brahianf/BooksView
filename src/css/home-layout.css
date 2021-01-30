@@ -23,6 +23,16 @@
     }
   }
 
+.home.min {
+  grid-template-columns: 60px 1fr;
+  transition: .5s;
+}
+
+.home.max {
+  grid-template-columns: 280px 1fr;
+  transition: .5s;
+}
+
   .home.search-active {
     grid-template-rows: 1fr 150px;
 }

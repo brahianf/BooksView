@@ -453,13 +453,18 @@
     if ($sidebar.classList.contains('show')){
       $sidebar.classList.remove('show');
       $homeSidebar.classList.remove('maxWidth');
+      $home.classList.remove('max');
       $sidebar.classList.add('hide');
       $homeSidebar.classList.add('minWidth');
+      $home.classList.add('min');
     } else{
       $homeSidebar.classList.remove('minWidth');
       $sidebar.classList.remove('hide');
+      $home.classList.remove('min');
       $sidebar.classList.add('show');
       $homeSidebar.classList.add('maxWidth');
+      $home.classList.add('max');
+
     }
   };
 
