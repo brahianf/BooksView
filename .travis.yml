@@ -1,0 +1,50 @@
+language: node_js
+# os: osx
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+node_js:
+  - '12'
+# Profundidad 3 versiones anteriores.
+git:
+  depth: 3
+branches:
+  except:
+  - develop
+  - jsvanilla
+  - feature/header
+  - feature/home-sidebar-booklist
+  - feature/modall
+  - travisCI
+branches:
+  only:
+  - master
+# before_install:
+#   - python
+install:
+  -yarn install
+script:
+  - yarn test
+  - yarn deploy
+  - yarn build
+# before_script:
+#   - yastn test
+jobs:
+  include:
+    - stage: test
+      script: yarn test
+      script: yarn eslint
+    - stage: deploy
+      script: yarn deploy
+deploy:
+  provider: pages
+  edge: true
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN
+  local-dir: dist/
+  target-branch: gh-pages
+  commit_message: "Deploy release ${TRAVIS_TAG}"
+  on:
+    branch: master
