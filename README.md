@@ -60,7 +60,7 @@ $npx postcss ./src/css/home.css -o ./dist/css/home.css -w
 ### build  📦
 For a build bundle production:
 ```
-$npm build:production
+$npm build
 ```
 
 ###  Reference sites and designs
