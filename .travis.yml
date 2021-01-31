@@ -23,7 +23,7 @@ branches:
 # before_install:
 #   - python
 install:
-  -yarn install
+  - yarn install
 script:
   - yarn build
   # - yarn test
