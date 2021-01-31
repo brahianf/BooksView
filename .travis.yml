@@ -22,24 +22,24 @@ branches:
   - master
 # before_install:
 #   - python
-install:
-  - yarn install
+# install:
+#   - yarn install
 script:
   - yarn build
   # - yarn test
   # - yarn deploy
 # before_script:
 #   - yastn test
-jobs:
-  include:
-    - stage: test
-      script: yarn test
-      script: yarn eslint
-    - stage: deploy
-      script: yarn deploy
+# jobs:
+#   include:
+#     - stage: test
+#       script: yarn test
+#       script: yarn eslint
+#     - stage: deploy
+#       script: yarn deploy
 deploy:
   provider: pages
-  edge: true
+  # edge: true
   skip_cleanup: true
   keep_history: true
   # Set in the setting page of your repository, as a secure variable
