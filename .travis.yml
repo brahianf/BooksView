@@ -25,9 +25,9 @@ branches:
 install:
   -yarn install
 script:
-  - yarn test
-  - yarn deploy
   - yarn build
+  # - yarn test
+  # - yarn deploy
 # before_script:
 #   - yastn test
 jobs:
@@ -40,11 +40,12 @@ jobs:
 deploy:
   provider: pages
   edge: true
-  skip-cleanup: true
-  keep-history: true
-  github-token: $GITHUB_TOKEN
-  local-dir: dist/
-  target-branch: gh-pages
+  skip_cleanup: true
+  keep_history: true
+  # Set in the setting page of your repository, as a secure variable
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/
+  target_branch: gh-pages
   commit_message: "Deploy release ${TRAVIS_TAG}"
   on:
     branch: master
