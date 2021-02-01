@@ -79,6 +79,7 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
+            inject: true,
             template: path.resolve(__dirname,'index.html'),
             // filename: path.resolve(__dirname,'index.html'),
         }),

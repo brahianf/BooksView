@@ -58,7 +58,6 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            title: 'webpack-dev-server',
             template: path.resolve(__dirname,'index.html')
         }),
     ]
