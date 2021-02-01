@@ -1,5 +1,5 @@
+import '../css/home.css';
 (async function load(){
-
   function categoryItemtemplate(category) {
     return (
       `
