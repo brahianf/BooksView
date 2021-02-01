@@ -1,5 +1,6 @@
 import '../css/home.css';
 (async function load(){
+  const window = require("global/window");
   function categoryItemtemplate(category) {
     return (
       `
