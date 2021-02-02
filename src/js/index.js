@@ -1,6 +1,6 @@
 import '../css/home.css';
 (async function load(){
-  const window = require("global/window");
+  
   function categoryItemtemplate(category) {
     return (
       `
@@ -36,13 +36,13 @@ import '../css/home.css';
 
   async function cacheExist(category){
     const listName=`${category}List`;
-    const cacheList = window.localStorage.getItem('listName');
+    const cacheList = localStorage.getItem('listName');
     if(cacheList){
-      return JSON.parse(window.localStorage.getItem('listName'));
+      return JSON.parse(localStorage.getItem('listName'));
     }
     // debugger
     const data =  await getData(`${BASE_API}?category=${category}&criteria=most_viewed&order=newest`);
-    window.localStorage.setItem(listName, JSON.stringify(data));
+    localStorage.setItem(listName, JSON.stringify(data));
     return data;
   };
 
@@ -334,24 +334,24 @@ import '../css/home.css';
 
   async function cacheCategory(category){
     const listName=`${category}`;
-    const cacheList = window.localStorage.getItem('listName');
+    const cacheList = localStorage.getItem('listName');
     if(cacheList){
-      return JSON.parse(window.localStorage.getItem('listName'));
+      return JSON.parse(localStorage.getItem('listName'));
     }
     // debugger
     const data =  await getData(`${BASE_API}?get_categories=all`);
-    window.localStorage.setItem(listName, JSON.stringify(data));
+    localStorage.setItem(listName, JSON.stringify(data));
     return data;
   };
 
   async function cacheSubCategoryItems(id){
     const listName=`${id}items`;
-    const cacheList = window.localStorage.getItem('listName');
+    const cacheList = localStorage.getItem('listName');
     if(cacheList){
-      return JSON.parse(window.localStorage.getItem('listName'));
+      return JSON.parse(localStorage.getItem('listName'));
     }
     const data =  await getData(`${BASE_API}?get_subcategories_by_category_ID=${id}`);
-    window.localStorage.setItem(listName, JSON.stringify(data));
+    localStorage.setItem(listName, JSON.stringify(data));
     return data;
   };
 
