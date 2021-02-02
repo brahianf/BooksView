@@ -37,6 +37,13 @@ script:
 #       script: yarn eslint
 #     - stage: deploy
 #       script: yarn deploy
+notifications:
+  email:
+    recipients:
+      - brahianf.hurtado@gmail.com
+    on_success: always
+    on_failure: always
+  # slack: 
 deploy:
   provider: pages
   # edge: true
