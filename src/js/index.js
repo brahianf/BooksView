@@ -236,6 +236,7 @@ import '../css/home.css';
                                   </div>
                                   `;
     list.forEach((book) => {
+      console.log(book.cover)
       const HTMLString = bookItemtemplate(book,category);
       $container.innerHTML += HTMLString;
       // const $image=$container.querySelector('img.imgList')
