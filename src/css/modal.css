@@ -85,7 +85,8 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  height: min-content;
+  /* width: min-content; */
+  height: 70%;
   overflow: auto;
   display: flex;
   justify-content: center;
@@ -108,8 +109,8 @@
 
 .modal-content img {
   margin: 0 10px 0 0;
-  width: 200px;
-  height: 100%;
+  width: 220px;
+  height: 200px;
   object-fit: cover;
   margin-right: 15px;
   border: 1px solid var(--darkColor);
@@ -155,6 +156,11 @@
 
   mix-blend-mode: normal;
   opacity: 0.9;
+}
+
+.modal__LogIn p:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /*@keyframes animationIn {*/

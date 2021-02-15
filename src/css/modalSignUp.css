@@ -1,0 +1,17 @@
+.modal-signUp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.modal-signUp input{
+  margin: 10px 0;
+}
+
+.modal-button {
+  width: 160px;
+  height: 44px;
+  padding: 6px 0px;
+}

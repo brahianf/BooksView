@@ -2,36 +2,52 @@
   margin: 5px;
   display: flex;
   align-items: center;
+  color: var(--lightColor);
   @media (--small ){
     grid-area: user;
     margin: 5px;
   }  
 }
-
-.user p {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  margin: 0;
+#singIn-button{
+  margin: 0 10px;
   font-family: "Lato";
   font-style: normal;
   font-weight: bold;
-  line-height: 30px;
-  /* or 125% */
-  letter-spacing: -0.369231px;
-  color: #1D1F24;
-  /* @media (--small ){
-    font-size: 18px;
-  } */
+  font-size: 16px;
+  line-height: 21px;
 }
-
-.user p:hover {
+/* class="search-button" */
+.primary-user button {
+  margin: 0 10px;
+  height: 35px;
+  width: 100%;
+  border-radius: 0px;
+  background: var(--warningColor);
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  cursor: pointer;
+  @media (--small ){
+    width: 100%;
+  }
+}
+.primary-user button:hover {
+  box-shadow: 0px 4px 4px #afa8a9;
+}
+.primary-user img:hover {
   text-decoration: underline;
   transform: scale(1.1);
   cursor: pointer;
 }
 
-.user img {
+.primary-user img {
+  display: none;
   width: 45px;
   height: 45px;
   object-fit: cover;

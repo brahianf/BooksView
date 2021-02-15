@@ -1,7 +1,7 @@
 .burger-button{
   /* width: 30px; */
   height: 40px;
-  border: 2px solid rgba(29, 31, 36, .8);
+  border: 2px solid rgba(45, 55, 65, .8);
   /* border: .5px solid var(--darkColor); */
   /* border-radius: 50%; */
   background-color: var(--lightColor);

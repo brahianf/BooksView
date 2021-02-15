@@ -53,12 +53,12 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
   /* identical to box height */
   text-align: center;
   letter-spacing: 1.6px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #FFFFFF;
   cursor: pointer;
   @media (--small ){
