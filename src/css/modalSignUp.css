@@ -15,3 +15,39 @@
   height: 44px;
   padding: 6px 0px;
 }
+
+.signIn__social {
+  width: 100%;
+  margin: 14px 0;
+  justify-content: flex-start;
+}
+
+.signIn__social--item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 0;
+  width: 100%;
+}
+
+.signIn__social--item figure{
+  width: min-content;
+}
+
+.signIn__social--item img{
+  width: 40px;
+  height: 40px;
+}
+
+.signIn__sociall--item p{
+  margin: 0 20px;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.signIn__social--item p:hover{
+  font-weight: bold;
+  text-decoration: underline;
+}

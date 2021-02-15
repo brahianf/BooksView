@@ -52,6 +52,26 @@ class AuthFirebase {
         console.error(error.message);
       });
   }
+
+  authAccountGoogle(){
+    const provider = new firebase.auth.GoogleAuthProvider()
+    firebase.auth().signInWithPopup(provider)
+    .then(result => {
+      document.getElementById('modal').style.animation = 'modalOut .8s forwards';
+      // Elements Overlay Modal;
+      document.getElementById('overlay').classList.remove('active');
+
+      document.getElementById('singUp-button').style.display = 'none';
+      document.getElementById('singIn-button').textContent = result.user.displayName;
+      document.getElementById('user-photo').style.display = 'block';
+      document.getElementById('user-photo').setAttribute('src' , result.user.photoURL);
+      alert(`Bienvenido ${result.user.displayName} !! `);
+    })
+    .catch(error => {
+      console.log(error);
+      alert(`Problema de autenticacion google ${error} || ${error.message} `);
+    })
+  }
 }
 
 export default AuthFirebase;

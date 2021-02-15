@@ -1,4 +1,6 @@
 import AuthFirebase from './authFirebase'
+import googleIcon from '../../images/covers/googleIcon.svg'
+import facebookIcon from '../../images/covers/facebookIcon.svg'
 
   const objAuth = new AuthFirebase();
 
@@ -6,13 +8,23 @@ import AuthFirebase from './authFirebase'
   // Elements Overlay Modal;
   const $overlay = document.getElementById('overlay');
 
-  const sigIntemtemplateModal = () => {
+  const signIntemtemplateModal = () => {
     return (
       `
       <div class="primary-search modal-signUp">
         <div class=" ">
           <button class="modal-btn primary" id="hide-modal">X</button>
         </div>
+        <div class="signIn__social">
+          <div class="signIn__social--item">
+            <figure><img src=${googleIcon} alt="Google"/></figure>
+            <p id="signIn__google">Iniciar sesión con Gmail</p>
+          </div>
+          <div class="signIn__social--item">
+            <figure><img src=${facebookIcon}  alt="Facebook" /></figure>
+            <p id="signIn__google">Iniciar sesión con Facebook</p>
+          </div>
+        </div> 
         <p> | Tengo contraseña ...continuar con mi correo  |
         <form type="submit" class="search" id="formSingUp">
           <input type="text" name="email" placeholder="usuario@email.com" aria-label='Email'/>
@@ -109,7 +121,7 @@ import AuthFirebase from './authFirebase'
 
   const showModalSingIn= () => {
     $modal.innerHTML = '';
-    const HTMLString = sigIntemtemplateModal();
+    const HTMLString = signIntemtemplateModal();
     $modal.innerHTML = HTMLString;
     var $form = $modal.querySelector('form');
     const $modalButton = document.getElementById('modal-button');
@@ -117,6 +129,12 @@ import AuthFirebase from './authFirebase'
       event.preventDefault();
       loginAccount($form);
     });
+    const $signIn__google = document.getElementById('signIn__google');
+    $signIn__google.addEventListener('click', () => {
+      const auth = new AuthFirebase();
+      auth.authAccountGoogle();
+    });
+
     const $modalLogIn = document.querySelector('div.modal__LogIn');
     $modalLogIn.addEventListener('click', () => {
       showModalSingUp();
@@ -142,6 +160,8 @@ import AuthFirebase from './authFirebase'
   export const addEventClickSignUp = () => {
     const $btnLogin= document.getElementById('singIn-button');
     $btnLogin.addEventListener('click', () => {
-      showModalSingIn();
+      if($btnLogin.textContent==='Inicio'){
+        showModalSingIn();
+      }
     });
   };
