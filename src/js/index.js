@@ -1,6 +1,8 @@
 import '../css/home.css';
+import {addEventClickSignIn, addEventClickSignUp} from './auth/authController';
+
 (async function load(){
-  
+
   function categoryItemtemplate(category) {
     return (
       `
@@ -79,24 +81,17 @@ import '../css/home.css';
 
   // Elements modal Books
   const $modal = document.getElementById('modal');
-  const $modalTitle = $modal.querySelector('h1');
-  const $modalImage = $modal.querySelector('img');
-  const $modalContentAuthor = $modal.querySelector('p.modal-content-author');
-  const $modalContentLanguage = $modal.querySelector('p.modal-content-language');
-  const $modalContentPublisher = $modal.querySelector('p.modal-content-publisher');
-  const $modalContentPublisherDate = $modal.querySelector('p.modal-content-publisher_date');
-  const $modalContentDescription = $modal.querySelector('p.modal-content-description');
 
   // Elements Overlay Modal;
   const $overlay = document.getElementById('overlay');
-  const $hideModal = document.getElementById('hide-modal');
 
   function hideModal(){
     $overlay.classList.remove('active');
     $modal.style.animation = 'modalOut .8s forwards';
   };
 
-  $hideModal.addEventListener('click', hideModal);
+  addEventClickSignIn();
+  addEventClickSignUp();
 
   // const listFavorites = await cacheExist('list-favorites');
   let listFavorites = [];
@@ -146,18 +141,18 @@ import '../css/home.css';
   
   function addFavoriteClick($addfavorites) {
     $addfavorites.addEventListener('click', () => {
+      const $modalTitle = $modal.querySelector('h1');
+      const $modalImage = $modal.querySelector('img');
       const id = $modal.dataset.id;
       const category = $modal.dataset.category;
       const title = $modalTitle.textContent;
       const cover = $modalImage.getAttribute('src');
-
       const book = {
         ID: id,
         category: category,
         title: title,
         cover: cover
       };
-
       if($addfavorites.textContent === 'Agregar a favoritos'){
         $addfavorites.textContent = 'Eliminar de favoritos';
         listFavorites.push(book);
@@ -169,19 +164,40 @@ import '../css/home.css';
     });
   };
 
-  const $addfavorites = $modal.querySelector('button.secundary');
-  addFavoriteClick($addfavorites);
+  function bookItemtemplateModal(data) {
+    return (
+      `
+      <div class="modal-buttons">
+        <button class="modal-btn secundary">Agregar a favoritos</button>
+        <button class="modal-btn secundary">Descargar</button>
+        <button class="modal-btn primary" id="hide-modal">X</button>
+      </div>
+      <div class="modal-content">
+        <img class="fadeIn" alt="${data.title}" src="${data.cover}" width="170" height="256">
+        <div class="modal-content-details">
+          <h1>${data.title}</h1>
+          <div>
+            <p>Autor</p>
+            <p>Idioma</p>
+            <p>Editorial</p>
+            <p>Fecha</p>
+            <p class="modal-content-author">${data.author}</p>
+            <p class="modal-content-language">${data.language}</p>
+            <p class="modal-content-publisher">${data.publisher}</p>
+            <p class="modal-content-publisher_date">${data.publisher_date}</p>
+          </div>
+          <p class="modal-content-description">${data.content_short}</p>
+        </div>
+      </div>
+      `
+    )
+  }
 
   function showModal($element) {
-
+    $modal.innerHTML = '';
     const id= $element.dataset.id;
     const book = findbyId($element.dataset.id, listFavorites);
-    if(book){
-      $addfavorites.textContent = 'Eliminar de favoritos'
-    } else {
-      $addfavorites.textContent = 'Agregar a favoritos';
-    }
-  
+
     $modal.style.animation = 'modalIn .6s forwards';
     $overlay.classList.add('active');
   
@@ -189,13 +205,19 @@ import '../css/home.css';
     const data = findBook(id,category);
     $modal.setAttribute('data-id', id);
     $modal.setAttribute('data-category', category);
-    $modalTitle.textContent = data.title;
-    $modalImage.setAttribute('src', data.cover);
-    $modalContentAuthor.textContent = data.author;
-    $modalContentLanguage.textContent = data.language;
-    $modalContentPublisher.textContent = data.publisher;
-    $modalContentPublisherDate.textContent = data.publisher_date;
-    $modalContentDescription.textContent = data.content_short;
+    const HTMLString = bookItemtemplateModal(data);
+    $modal.innerHTML = HTMLString;
+
+    const $hideModal = document.getElementById('hide-modal');
+    $hideModal.addEventListener('click', hideModal);
+
+    const $addfavorites = $modal.querySelector('button.secundary');
+    if(book){
+      $addfavorites.textContent = 'Eliminar de favoritos'
+    } else {
+      $addfavorites.textContent = 'Agregar a favoritos';
+    }
+    addFavoriteClick($addfavorites);
   };
 
   function addEventClick($btn, $element) {
@@ -430,7 +452,7 @@ import '../css/home.css';
     }
   });
 
-  const $searchButton = document.querySelector('button.search-button ');
+  const $searchButton = document.querySelector('button.search-button');
   $searchButton.addEventListener('click', async (event) => {
     event.preventDefault();
     // $home.classList.add('search-active')
