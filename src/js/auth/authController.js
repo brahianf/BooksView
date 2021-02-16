@@ -22,7 +22,7 @@ import facebookIcon from '../../images/covers/facebookIcon.svg'
           </div>
           <div class="signIn__social--item">
             <figure><img src=${facebookIcon}  alt="Facebook" /></figure>
-            <p id="signIn__google">Iniciar sesión con Facebook</p>
+            <p id="signIn__facebook">Iniciar sesión con Facebook</p>
           </div>
         </div> 
         <p> | Tengo contraseña ...continuar con mi correo  |
@@ -133,6 +133,12 @@ import facebookIcon from '../../images/covers/facebookIcon.svg'
     $signIn__google.addEventListener('click', () => {
       const auth = new AuthFirebase();
       auth.authAccountGoogle();
+    });
+
+    const $signIn__facebook = document.getElementById('signIn__facebook');
+    $signIn__facebook.addEventListener('click', () => {
+      const auth = new AuthFirebase();
+      auth.authAccountFacebook();
     });
 
     const $modalLogIn = document.querySelector('div.modal__LogIn');
