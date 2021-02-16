@@ -1,5 +1,6 @@
 import '../css/home.css';
 import {addEventClickSignIn, addEventClickSignUp} from './auth/authController';
+import * as fetch from 'node-fetch';
 
 (async function load(){
 
