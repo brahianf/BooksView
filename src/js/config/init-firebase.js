@@ -1,4 +1,4 @@
-firebase = require('firebase');
+import firebase from 'firebase';
 // Firebase project configuration
 var firebaseConfig = {
   apiKey: "AIzaSyBv5gMA-UtRrQ14ScZ3NHKQXP7i07lhzik",
