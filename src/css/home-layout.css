@@ -10,6 +10,7 @@
                          "sidebar featuring";
     /* background: var(--auxColor2); */
     height: 100%;
+    position: relative;
     @media (--small ){
       grid-template-columns: 60px 1fr;
       /* height: auto;

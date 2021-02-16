@@ -25,7 +25,7 @@ import facebookIcon from '../../images/covers/facebookIcon.svg'
             <p id="signIn__facebook">Iniciar sesión con Facebook</p>
           </div>
         </div> 
-        <p> | Tengo contraseña ...continuar con mi correo  |
+        <p> | Iniciar Sesión con email y contraseña | </p>
         <form type="submit" class="search" id="formSingUp">
           <input type="text" name="email" placeholder="usuario@email.com" aria-label='Email'/>
           <input type="password" name="password" placeholder="***********" aria-label='Contraseña'/>
