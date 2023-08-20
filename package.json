@@ -31,7 +31,7 @@
     "autoprefixer": "^9.7.6",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
-    "firebase": "^8.2.7",
+    "firebase": "^10.2.0",
     "global": "^4.4.0",
     "node-fetch": "^2.6.1",
     "postcss-cli": "^7.1.1",
